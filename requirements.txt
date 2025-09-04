@@ -1,0 +1,25 @@
+# Core machine learning dependencies
+pandas==2.3.2
+numpy==2.2.6
+scipy==1.15.3
+scikit-learn==1.7.1
+xgboost==3.0.4
+
+# Deep Learning frameworks
+transformers==4.56.0
+huggingface-hub==0.34.4
+tokenizers==0.22.0
+
+# VLLM for local model inference
+vllm==0.8.5.post1
+
+# OpenAI API support
+openai==1.102.0
+tiktoken==0.11.0
+
+# Progress bars and utilities
+tqdm==4.67.1
+pytz==2025.2
+
+# Data formats
+pyyaml==6.0.2
