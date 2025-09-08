@@ -9,7 +9,7 @@
 # 
 # Usage:
 #   source ./parameters.sh
-#   ./mp/data_prep_mp.sh
+#   ./scripts/multi_process/data_prep_mp.sh
 # =============================================================================
 
 # Default parameters (can be overridden by environment variables)
@@ -37,7 +37,7 @@ print_usage() {
     echo "  source ./parameters.sh"
     echo ""
     echo "Step 2: Run parallel batch processing"
-    echo "  ./mp/batch_data_prep_mp.sh"
+    echo "  ./scripts/multi_process/batch_data_prep_mp.sh"
     echo ""
     echo "Alternatively, you can set environment variables manually:"
     echo "  export dataset_names=\"bank heloc rl\""
@@ -86,10 +86,10 @@ run_single_config() {
     local row_shuffle_seed=$3
     local job_id=$4
     
-    echo "STARTING: [Job $job_id] Starting: $dataset (chunk:$train_chunk_size, seed:$row_shuffle_seed)"
+    echo "🚀 [Job $job_id] Starting: $dataset (chunk:$train_chunk_size, seed:$row_shuffle_seed)"
     
     # Run the Python script
-    python ./evaluation/data_prep/data_chunk_prep.py \
+    python ./src/evaluation/data_prep/data_chunk_prep.py \
         --input_dir "$original_data_dir" \
         --output_dir "$split_data_dir" \
         --dataset_name "$dataset" \
@@ -104,9 +104,9 @@ run_single_config() {
     
     local exit_code=$?
     if [ $exit_code -eq 0 ]; then
-        echo "SUCCESS: [Job $job_id] Completed: $dataset (chunk:$train_chunk_size, seed:$row_shuffle_seed)"
+        echo "✅ [Job $job_id] Completed: $dataset (chunk:$train_chunk_size, seed:$row_shuffle_seed)"
     else
-        echo "ERROR: [Job $job_id] Failed: $dataset (chunk:$train_chunk_size, seed:$row_shuffle_seed) [Exit code: $exit_code]"
+        echo "❌ [Job $job_id] Failed: $dataset (chunk:$train_chunk_size, seed:$row_shuffle_seed) [Exit code: $exit_code]"
     fi
     
     return $exit_code
@@ -137,9 +137,9 @@ echo ""
 for dataset_idx in "${!DATASETS[@]}"; do
     dataset="${DATASETS[$dataset_idx]}"
     
-    echo "================================================================================"
-    echo "Input: Processing Dataset: $dataset ($(($dataset_idx + 1))/${#DATASETS[@]})"
-    echo "================================================================================"
+    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+    echo "📂 Processing Dataset: $dataset ($(($dataset_idx + 1))/${#DATASETS[@]})"
+    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
     
     # Launch parallel jobs for all (chunk_size, seed) combinations for this dataset
     for train_chunk_size in "${CHUNK_SIZES[@]}"; do
@@ -163,7 +163,7 @@ for dataset_idx in "${!DATASETS[@]}"; do
     echo "⏳ Waiting for all jobs for dataset '$dataset' to complete..."
     wait
     
-    echo "SUCCESS: All jobs for dataset '$dataset' completed!"
+    echo "✅ All jobs for dataset '$dataset' completed!"
     
     # Wait between datasets (except for the last one)
     if [ $dataset_idx -lt $((${#DATASETS[@]} - 1)) ]; then
@@ -174,6 +174,6 @@ for dataset_idx in "${!DATASETS[@]}"; do
 done
 
 echo ""
-echo "Completed: Multi-processing batch processing completed!"
+echo "🎉 Multi-processing batch processing completed!"
 echo "📊 Processed $total_configs total configurations across ${#DATASETS[@]} datasets"
 echo "⚡ Used up to $max_parallel_jobs parallel jobs per dataset"

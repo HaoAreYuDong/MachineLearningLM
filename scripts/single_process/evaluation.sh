@@ -7,7 +7,7 @@
 # 
 # Usage:
 #   source ./parameters.sh
-#   ./single/evaluation.sh
+#   ./scripts/single_process/evaluation.sh
 # =============================================================================
 
 # Default parameters (can be overridden by environment variables)
@@ -30,7 +30,7 @@ print_usage() {
     echo "  source ./parameters.sh"
     echo ""
     echo "Step 2: Run batch evaluation"
-    echo "  ./single/evaluation.sh"
+    echo "  ./scripts/single_process/evaluation.sh"
     echo ""
     echo "Alternatively, you can set environment variables manually:"
     echo "  export dataset_names=\"bank heloc led7\""
@@ -78,12 +78,12 @@ for dataset in "${DATASETS[@]}"; do
         current_job=$((current_job + 1))
         
         # Create elegant table-style output
-        printf "+-----------------------------------------------------------------------------------------+\n"
-        printf "| Job %2d/%-2d | Dataset: %-15s | Chunk Size: %-8s |\n" "$current_job" "$total_jobs" "$dataset" "$train_chunk_size"
-        printf "+-----------------------------------------------------------------------------------------+\n"
+        printf "┌─────────────────────────────────────────────────────────────────────────────────────────┐\n"
+        printf "│ Job %2d/%-2d │ Dataset: %-15s │ Chunk Size: %-8s │\n" "$current_job" "$total_jobs" "$dataset" "$train_chunk_size"
+        printf "└─────────────────────────────────────────────────────────────────────────────────────────┘\n"
         
         # Run the actual command
-        python ./evaluation/result_proc/evaluator.py \
+        python ./src/evaluation/result_proc/evaluator.py \
             --input_dir "$predict_data_dir" \
             --output_dir "$metric_data_dir" \
             --dataset_name "$dataset" \
@@ -95,9 +95,9 @@ for dataset in "${DATASETS[@]}"; do
         
         # Check if the command was successful
         if [ $? -eq 0 ]; then
-            echo "SUCCESS: Successfully evaluated $dataset (chunk_size: $train_chunk_size)"
+            echo "✅ Successfully evaluated $dataset (chunk_size: $train_chunk_size)"
         else
-            echo "ERROR: Failed to evaluate $dataset (chunk_size: $train_chunk_size)"
+            echo "❌ Failed to evaluate $dataset (chunk_size: $train_chunk_size)"
             echo "Error code: $?"
         fi
         echo "==================================================================================="
@@ -105,10 +105,10 @@ for dataset in "${DATASETS[@]}"; do
     done
 done
 
-echo "Completed: Batch evaluation completed!"
+echo "🎉 Batch evaluation completed!"
 echo "📊 Processing Summary:"
 echo "   - Processed ${#DATASETS[@]} datasets"
 echo "   - Processed ${#CHUNK_SIZES[@]} chunk sizes"
 echo "   - Total evaluation jobs: $total_jobs"
 echo "   - Row shuffle seeds used: ${SHUFFLE_SEEDS[*]}"
-echo "Output: Results saved to: $metric_data_dir"
+echo "📁 Results saved to: $metric_data_dir"

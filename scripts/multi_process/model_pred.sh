@@ -11,7 +11,7 @@
 # 
 # Usage:
 #   source ./parameters.sh
-#   ./single/model_pred.sh
+#   ./scripts/multi_process/model_pred.sh
 # =============================================================================
 
 # Default parameters (can be overridden by environment variables)
@@ -41,7 +41,7 @@ print_usage() {
     echo "  source ./parameters.sh"
     echo ""
     echo "Step 2: Run batch model prediction"
-    echo "  ./single/model_pred.sh"
+    echo "  ./scripts/multi_process/model_pred.sh"
     echo ""
     echo "Alternatively, you can set environment variables manually:"
     echo "  export dataset_names=\"bank heloc rl\""
@@ -77,11 +77,11 @@ is_ml_model() {
 
 # Determine which prediction script to use
 if is_ml_model "$model_name"; then
-    prediction_script="./evaluation/model_pred/ml_model_pred.py"
+    prediction_script="./src/evaluation/model_pred/ml_model_pred.py"
     script_type="ML"
     echo "🤖 Detected ML model: $model_name -> Using ml_model_pred.py"
 else
-    prediction_script="./evaluation/model_pred/dl_model_pred.py"
+    prediction_script="./src/evaluation/model_pred/dl_model_pred.py"
     script_type="DL"
     echo "🧠 Detected DL model: $model_name -> Using dl_model_pred.py"
 fi
@@ -132,10 +132,10 @@ echo ""
 for train_chunk_size in "${CHUNK_SIZES[@]}"; do
     current_chunk=$((current_chunk + 1))
     
-    echo "================================================================================"
+    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
     echo "🔧 Processing Chunk Size: $train_chunk_size ($current_chunk/${#CHUNK_SIZES[@]})"
-    echo "================================================================================"
-    echo "STARTING: Model will be loaded once for this chunk size and process $total_combinations_per_chunk combinations"
+    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+    echo "🚀 Model will be loaded once for this chunk size and process $total_combinations_per_chunk combinations"
     echo ""
     
     # Build the command based on script type
@@ -207,21 +207,21 @@ for train_chunk_size in "${CHUNK_SIZES[@]}"; do
     
     # Check if the command was successful
     if [ $? -eq 0 ]; then
-        echo "SUCCESS: Successfully processed chunk_size $train_chunk_size ($total_combinations_per_chunk combinations)"
+        echo "✅ Successfully processed chunk_size $train_chunk_size ($total_combinations_per_chunk combinations)"
     else
-        echo "ERROR: Failed to process chunk_size $train_chunk_size"
+        echo "❌ Failed to process chunk_size $train_chunk_size"
         echo "Error code: $?"
     fi
     echo "==================================================================================="
     echo ""
 done
 
-echo "Completed: Optimized batch model prediction completed!"
+echo "🎉 Optimized batch model prediction completed!"
 echo "📊 Performance Summary:"
 echo "   - Script type: $script_type"
 echo "   - Processed ${#CHUNK_SIZES[@]} chunk sizes"
 echo "   - Total combinations: $total_combinations"
-echo "   - Model loads: ${#CHUNK_SIZES[@]} (saved $((total_combinations - ${#CHUNK_SIZES[@]})) model loads! STARTING:)"
+echo "   - Model loads: ${#CHUNK_SIZES[@]} (saved $((total_combinations - ${#CHUNK_SIZES[@]})) model loads! 🚀)"
 saved_loads=$((total_combinations - ${#CHUNK_SIZES[@]}))
 efficiency_gain=$((100 * saved_loads / total_combinations))
 echo "   - Efficiency gain: ~${efficiency_gain}% reduction in model loading overhead"

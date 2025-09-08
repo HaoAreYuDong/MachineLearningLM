@@ -21,7 +21,7 @@ show_help() {
     echo "  --metric_data_dir DIR    Metric data directory path (default: $metric_data_dir)"
     echo "  --report_data_dir DIR    Report output directory path (default: $report_data_dir)"
     echo "  --model_name NAME        Model name (default: $model_name)"
-    echo "  -h, --help              Display help information"
+    echo "  -h, --help               Show this help message"
     echo ""
     echo "Examples:"
     echo "  $0"
@@ -62,7 +62,7 @@ FINAL_REPORT_DATA_DIR="${REPORT_DATA_DIR_ARG:-$report_data_dir}"
 FINAL_MODEL_NAME="${MODEL_NAME_ARG:-$model_name}"
 
 # Build Python command
-PYTHON_CMD="python evaluation/zero_summary/metric_summarizer.py"
+PYTHON_CMD="python src/evaluation/zero_summary/metric_summarizer.py"
 PYTHON_CMD="$PYTHON_CMD --metric_data_dir $FINAL_METRIC_DATA_DIR"
 PYTHON_CMD="$PYTHON_CMD --report_data_dir $FINAL_REPORT_DATA_DIR"
 
@@ -71,13 +71,13 @@ if [[ -n "$FINAL_MODEL_NAME" ]]; then
 fi
 
 # Display execution information
-echo "STARTING: Starting metric summarization..."
-echo "Input: Metric directory: $FINAL_METRIC_DATA_DIR"
-echo "Output: Output directory: $FINAL_REPORT_DATA_DIR"
+echo "🚀 Starting metric summarization..."
+echo "📂 Metric directory: $FINAL_METRIC_DATA_DIR"
+echo "📁 Output directory: $FINAL_REPORT_DATA_DIR"
 if [[ -n "$FINAL_MODEL_NAME" ]]; then
-    echo "Model:  Model name: $FINAL_MODEL_NAME"
+    echo "🏷️  Model name: $FINAL_MODEL_NAME"
 fi
-echo "Command: Command: $PYTHON_CMD"
+echo "💻 Execution command: $PYTHON_CMD"
 echo ""
 
 # Execute Python script
@@ -86,9 +86,9 @@ eval $PYTHON_CMD
 # Check execution result
 if [[ $? -eq 0 ]]; then
     echo ""
-    echo "SUCCESS: Metric summarization completed!"
+    echo "✅ Metric summarization completed!"
 else
     echo ""
-    echo "ERROR: Metric summarization failed!"
+    echo "❌ Metric summarization failed!"
     exit 1
 fi

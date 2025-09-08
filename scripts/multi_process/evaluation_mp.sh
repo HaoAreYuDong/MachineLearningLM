@@ -9,7 +9,7 @@
 # 
 # Usage:
 #   source ./parameters.sh
-#   ./mp/evaluation_mp.sh
+#   ./scripts/multi_process/evaluation_mp.sh
 # =============================================================================
 
 # Default parameters (can be overridden by environment variables)
@@ -34,7 +34,7 @@ print_usage() {
     echo "  source ./parameters.sh"
     echo ""
     echo "Step 2: Run parallel batch evaluation"
-    echo "  ./mp/evaluation_mp.sh"
+    echo "  ./scripts/multi_process/evaluation_mp.sh"
     echo ""
     echo "Alternatively, you can set environment variables manually:"
     echo "  export dataset_names=\"bank heloc led7\""
@@ -80,10 +80,10 @@ run_single_evaluation() {
     local train_chunk_size=$2
     local job_id=$3
     
-    echo "STARTING: [Job $job_id] Starting evaluation: $dataset (chunk_size: $train_chunk_size)"
+    echo "🚀 [Job $job_id] Starting evaluation: $dataset (chunk_size: $train_chunk_size)"
     
     # Run the Python script
-    python ./evaluation/result_proc/evaluator.py \
+    python ./src/evaluation/result_proc/evaluator.py \
         --input_dir "$predict_data_dir" \
         --output_dir "$metric_data_dir" \
         --dataset_name "$dataset" \
@@ -95,9 +95,9 @@ run_single_evaluation() {
     
     local exit_code=$?
     if [ $exit_code -eq 0 ]; then
-        echo "SUCCESS: [Job $job_id] Completed evaluation: $dataset (chunk_size: $train_chunk_size)"
+        echo "✅ [Job $job_id] Completed evaluation: $dataset (chunk_size: $train_chunk_size)"
     else
-        echo "ERROR: [Job $job_id] Failed evaluation: $dataset (chunk_size: $train_chunk_size) [Exit code: $exit_code]"
+        echo "❌ [Job $job_id] Failed evaluation: $dataset (chunk_size: $train_chunk_size) [Exit code: $exit_code]"
     fi
     
     return $exit_code
@@ -129,9 +129,9 @@ echo ""
 for dataset_idx in "${!DATASETS[@]}"; do
     dataset="${DATASETS[$dataset_idx]}"
     
-    echo "================================================================================"
-    echo "Input: Processing Dataset: $dataset ($(($dataset_idx + 1))/${#DATASETS[@]})"
-    echo "================================================================================"
+    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+    echo "📂 Processing Dataset: $dataset ($(($dataset_idx + 1))/${#DATASETS[@]})"
+    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
     
     # Launch parallel jobs for all chunk_sizes for this dataset
     for train_chunk_size in "${CHUNK_SIZES[@]}"; do
@@ -153,7 +153,7 @@ for dataset_idx in "${!DATASETS[@]}"; do
     echo "⏳ Waiting for all evaluation jobs for dataset '$dataset' to complete..."
     wait
     
-    echo "SUCCESS: All evaluation jobs for dataset '$dataset' completed!"
+    echo "✅ All evaluation jobs for dataset '$dataset' completed!"
     
     # Wait between datasets (except for the last one)
     if [ $dataset_idx -lt $((${#DATASETS[@]} - 1)) ]; then
@@ -164,11 +164,11 @@ for dataset_idx in "${!DATASETS[@]}"; do
 done
 
 echo ""
-echo "Completed: Multi-processing batch evaluation completed!"
+echo "🎉 Multi-processing batch evaluation completed!"
 echo "📊 Processing Summary:"
 echo "   - Processed ${#DATASETS[@]} datasets"
 echo "   - Processed ${#CHUNK_SIZES[@]} chunk sizes per dataset"
 echo "   - Total evaluations: $total_evaluations"
 echo "   - Row shuffle seeds used: ${SHUFFLE_SEEDS[*]}"
 echo "⚡ Used up to $max_parallel_jobs parallel jobs per dataset"
-echo "Output: Results saved to: $metric_data_dir"
+echo "📁 Results saved to: $metric_data_dir"

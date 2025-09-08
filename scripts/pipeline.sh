@@ -61,17 +61,17 @@ is_ml_model() {
 # Determine model type
 if is_ml_model "$model_name"; then
     model_type="ML"
-    prediction_script="./evaluation/model_pred/ml_model_pred.py"
+    prediction_script="./src/evaluation/model_pred/ml_model_pred.py"
     # ML models use 1_split as input
     model_input_dir=${model_input_dir:-"${datahub_outputs_dir:-./datahub_outputs}/1_split"}
 elif [[ "$model_name" == openai::* ]]; then
     model_type="API"
-    prediction_script="./evaluation/model_pred/dl_model_pred.py"
+    prediction_script="./src/evaluation/model_pred/dl_model_pred.py"
     # API models use 2_prompt as input
     model_input_dir=${model_input_dir:-"${datahub_outputs_dir:-./datahub_outputs}/2_prompt"}
 else
     model_type="GPU"
-    prediction_script="./evaluation/model_pred/dl_model_pred.py"
+    prediction_script="./src/evaluation/model_pred/dl_model_pred.py"
     # GPU models use 2_prompt as input
     model_input_dir=${model_input_dir:-"${datahub_outputs_dir:-./datahub_outputs}/2_prompt"}
 fi
@@ -135,7 +135,7 @@ run_data_prep_config() {
     
     echo "🚀 [Job $job_id] Data prep: $dataset (chunk:$train_chunk_size, seed:$row_shuffle_seed)"
     
-    python ./evaluation/data_prep/data_chunk_prep.py \
+    python ./src/evaluation/data_prep/data_chunk_prep.py \
         --input_dir "$original_data_dir" \
         --output_dir "$split_data_dir" \
         --dataset_name "$dataset" \
@@ -221,7 +221,7 @@ else
         
         echo "STARTING: [Job $job_id] Prompt gen: $dataset (chunk:$train_chunk_size, seed:$row_shuffle_seed)"
         
-        python ./evaluation/prompt_gen/data_prompt_gen.py \
+        python ./src/evaluation/prompt_gen/data_prompt_gen.py \
             --input_dir "$split_data_dir" \
             --output_dir "$prompt_data_dir" \
             --dataset_name "$dataset" \
@@ -531,7 +531,7 @@ run_evaluation_config() {
     
     echo "STARTING: [Job $job_id] Evaluation: $dataset (chunk_size: $train_chunk_size)"
     
-    python ./evaluation/result_proc/evaluator.py \
+    python ./src/evaluation/result_proc/evaluator.py \
         --input_dir "$predict_data_dir" \
         --output_dir "$metric_data_dir" \
         --dataset_name "$dataset" \
@@ -589,7 +589,7 @@ echo "Output: Output directory: $report_data_dir"
 # Run metric summarizer
 echo "STARTING: Generating summary report..."
 
-python evaluation/zero_summary/metric_summarizer.py \
+python src/evaluation/zero_summary/metric_summarizer.py \
     --metric_data_dir "$metric_data_dir" \
     --report_data_dir "$report_data_dir" \
     --model_name "$model_name"

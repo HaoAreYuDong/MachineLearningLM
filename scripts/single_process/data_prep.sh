@@ -7,7 +7,7 @@
 # 
 # Usage:
 #   source ./parameters.sh
-#   ./single/data_prep.sh
+#   ./scripts/single_process/data_prep.sh
 # =============================================================================
 
 # Default parameters (can be overridden by environment variables)
@@ -33,7 +33,7 @@ print_usage() {
     echo "  source ./parameters.sh"
     echo ""
     echo "Step 2: Run batch processing"
-    echo "  ./single/data_prep.sh"
+    echo "  ./scripts/single_process/data_prep.sh"
     echo ""
     echo "Alternatively, you can set environment variables manually:"
     echo "  export dataset_names=\"bank heloc rl\""
@@ -84,12 +84,12 @@ for dataset in "${DATASETS[@]}"; do
             current_job=$((current_job + 1))
             
             # Create elegant table-style output
-            printf "+-----------------------------------------------------------------------------------------+\n"
-            printf "| Job %2d/%-2d | Dataset: %-10s | Chunk: %-4s | Shuffle Seed: %-4s |\n" "$current_job" "$total_jobs" "$dataset" "$train_chunk_size" "$row_shuffle_seed"
-            printf "+-----------------------------------------------------------------------------------------+\n"
+            printf "┌─────────────────────────────────────────────────────────────────────────────────────────┐\n"
+            printf "│ Job %2d/%-2d │ Dataset: %-10s │ Chunk: %-4s │ Shuffle Seed: %-4s │\n" "$current_job" "$total_jobs" "$dataset" "$train_chunk_size" "$row_shuffle_seed"
+            printf "└─────────────────────────────────────────────────────────────────────────────────────────┘\n"
         
             # Run the actual command
-            python ./evaluation/data_prep/data_chunk_prep.py \
+            python ./src/evaluation/data_prep/data_chunk_prep.py \
                 --input_dir "$original_data_dir" \
                 --output_dir "$split_data_dir" \
                 --dataset_name "$dataset" \
@@ -104,9 +104,9 @@ for dataset in "${DATASETS[@]}"; do
             
             # Check if the command was successful
             if [ $? -eq 0 ]; then
-                echo "SUCCESS: Successfully processed $dataset (chunk:$train_chunk_size, seed:$row_shuffle_seed)"
+                echo "✅ Successfully processed $dataset (chunk:$train_chunk_size, seed:$row_shuffle_seed)"
             else
-                echo "ERROR: Failed to process $dataset (chunk:$train_chunk_size, seed:$row_shuffle_seed)"
+                echo "❌ Failed to process $dataset (chunk:$train_chunk_size, seed:$row_shuffle_seed)"
                 echo "Error code: $?"
             fi
             echo "==================================================================================="
@@ -115,5 +115,5 @@ for dataset in "${DATASETS[@]}"; do
     done
 done
 
-echo "Completed: Batch processing completed!"
+echo "🎉 Batch processing completed!"
 echo "Processed $total_jobs jobs for ${#DATASETS[@]} datasets, ${#CHUNK_SIZES[@]} chunk sizes, and ${#SHUFFLE_SEEDS[@]} shuffle seeds."
