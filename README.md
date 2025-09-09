@@ -1,4 +1,4 @@
-# Machine Learning LLM Evaluation Framework
+# MachineLearningLM
 
 A comprehensive framework for evaluating Large Language Models on machine learning tasks, supporting both traditional machine learning models and deep learning approaches with automated pipeline processing.
 
