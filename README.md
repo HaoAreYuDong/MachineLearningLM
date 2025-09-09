@@ -117,8 +117,8 @@ MachineLearningLM/
 ├── scripts/
 │   ├── single_process/     # Sequential execution shell scripts
 │   ├── multi_process/      # Parallel execution shell scripts (with _mp suffix)
-│   ├── parameters.sh       # Global parameter configuration
-|   └── pipeline.sh         # automated pipeline
+│   ├── evaluate_parameters.sh       # Global parameter configuration
+|   └── evaluate_pipeline.sh         # automated pipeline
 ├── datahub_inputs/
 │   ├── data_demo/          # Demo datasets for testing
 │   └── data_raw/           # Raw input datasets
