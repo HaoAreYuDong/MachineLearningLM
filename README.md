@@ -13,6 +13,7 @@ This framework provides end-to-end evaluation capabilities for LLMs on machine l
 1. **Special Character Handling**: Due to shell reserved characters, CSV filenames in TALENT datasets may contain special characters like `(` which are shell reserved characters. We recommend preprocessing these filenames to use only numbers, letters, and underscores before processing.
 
 2. **Text Data Processing**: While we support text data processing, since we use commas (`,`) as feature separators, please replace any commas in your dataset text to avoid model confusion. In our evaluation, we use spaces as replacements for commas.
+3. XGBoost in the framework is solely used for testing purposes currently. It only supports binary classification and is excluded from the experimental statistics in the paper.
 
 ### Batch Processing Usage
 
@@ -115,7 +116,7 @@ All parameters are managed through `./scripts/parameters.sh`. Modify this file t
 
 ### Features
 
-- **Dual Model Support**: Traditional ML and Deep Learning models
+- **Dual Model Support**: Traditional ML and Deep Learning models.
 - **Flexible Processing**: Single-process or multi-process execution
 - **Automated Pipeline**: End-to-end workflow automation
 - **Single File Support**: Direct inference on individual JSONL files
