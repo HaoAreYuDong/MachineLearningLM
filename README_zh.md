@@ -250,6 +250,7 @@ MachineLearningLM/
 │   └── LLaMA-Factory/   
 ├── requirements.txt        # 评估框架的Python依赖
 ├── README.md
+├── README_zh.md
 ├── THIRD_PARTY_NOTICES.md
 └── LICENSE
 ```
