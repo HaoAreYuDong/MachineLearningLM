@@ -1,5 +1,8 @@
 # Machine Learning LLM
 
+paper: https://arxiv.org/abs/2509.06806
+huggingface: https://huggingface.co/MachineLearningLM
+
 ## Evaluation Framework
 
 A comprehensive framework for evaluating Large Language Models on machine learning tasks, supporting both traditional machine learning models and deep learning approaches with automated pipeline processing.
@@ -71,7 +74,7 @@ The file should contain prompts in LLaMA Factory's Alpaca format with the follow
 python ./src/evaluation/model_pred/dl_model_pred.py \
   --input_dir ./demo_input.jsonl \
   --output_dir ./demo_output.jsonl \
-  --model_name hf_repo/model_name
+  --model_name MachineLearningLM/MachineLearningLM-7B-v1
 ```
 
 #### Cloud Model Usage
