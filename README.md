@@ -126,7 +126,7 @@ All parameters are managed through `./scripts/parameters.sh`. Modify this file t
 
 **This part of the code needs to run in an environment with the tabicl and openpyxl libraries installed.**
 
-The evaluation code for tabicl is placed separately in the ./src/evaluation/tabicl_evaluate.py file. Use ./scripts/tabicl_evaluate.sh to obtain the evaluation results for tabicl.
+The evaluation code for tabicl is placed separately in the `./src/evaluation/tabicl_evaluate.py` file. Use `./scripts/tabicl_evaluate.sh` to obtain the evaluation results for tabicl.
 
  Use --datasets to specify the datasets to be evaluated, and --sample_sizes to indicate the number of shots. 
 
@@ -136,7 +136,7 @@ If multiple datasets need to be evaluated, separate them with spaces. To evaluat
 
 MachineLearningLM uses the code from tabicl to generate prior data.
 
-Use ./scripts/generate_data.sh to generate the prior data. It generates the corresponding .pt and .csv files, and normalizes the feature values in the CSV files to the range of 0–999, as we did in the paper.
+Use `./scripts/generate_data.sh` to generate the prior data. It generates the corresponding .pt and .csv files, and normalizes the feature values in the CSV files to the range of 0–999, as we did in the paper.
 
 ### Parameter Introduction（refer to the comments in the file `tabicl\src\tabicl\prior\dataset.py`）
 
@@ -203,7 +203,7 @@ pip install -e ".[torch,metrics]" --no-build-isolation
 pip install wandb
 ```
 
-Use ./scripts/train.sh for training.
+Use `./scripts/train.sh` for training.
 
 ## Project Structure
 
