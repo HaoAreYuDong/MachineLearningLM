@@ -11,7 +11,7 @@ Part of the dataset has been open-sourced on Hugging Face. The complete dataset 
 - 🔹 **Warmup Dataset**:  
   https://drive.google.com/file/d/1OjD0jICy95lOFp52_2hJoO7KzSiFegLH/view?usp=sharing  
 
-- 🔹 **Full Dataset (Includes Warmup)**:  
+- 🔹 **Full Dataset**:  
   https://drive.google.com/file/d/1TYsEMI1WNYDzzE_z83Ah-QAmcoaVHKQA/view?usp=sharing
 
 ## Evaluation Framework
