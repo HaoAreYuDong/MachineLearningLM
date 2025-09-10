@@ -4,6 +4,16 @@
 
 🤗 huggingface: https://huggingface.co/MachineLearningLM
 
+**Pretraining Dataset**  
+
+Part of the dataset has been open-sourced on Hugging Face. The complete dataset is hosted on Google Drive:  
+
+- 🔹 **Warmup Dataset**:  
+  https://drive.google.com/file/d/1OjD0jICy95lOFp52_2hJoO7KzSiFegLH/view?usp=sharing  
+
+- 🔹 **Full Dataset (Includes Warmup)**:  
+  https://drive.google.com/file/d/1TYsEMI1WNYDzzE_z83Ah-QAmcoaVHKQA/view?usp=sharing
+
 ## Evaluation Framework
 
 A comprehensive framework for evaluating Large Language Models on machine learning tasks, supporting both traditional machine learning models and deep learning approaches with automated pipeline processing.
