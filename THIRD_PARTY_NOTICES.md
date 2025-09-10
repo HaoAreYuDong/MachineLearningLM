@@ -9,5 +9,6 @@ This project includes or distributes components under the following licenses:
 
 - TabICL — BSD 3-Clause License  
   Copyright (c) 2025, Soda team @ Inria  
-  Source: https://github.com/amazon-science/tabicl  
+  Source: https://github.com/soda-inria/tabicl
   See `third_party/tabicl/LICENSE`.
+
