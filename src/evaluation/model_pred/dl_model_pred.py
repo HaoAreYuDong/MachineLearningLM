@@ -349,11 +349,12 @@ def main():
 
     parser.add_argument('--labels', type=str, help='Label list, comma-separated, e.g.: "0,1,2,3,4"')
 
-   # Required parameters
-    parser.add_argument('--model_name', type=str, required=True, 
+    parser.add_argument('--model_name', type=str, 
+                        default='MachineLearningLM/MachineLearningLM-7B-v1',
                         help='Model name or path. Supported formats:\n'
                              '  - Local model path (using vLLM): /path/to/model\n'
-                             '  - OpenAI API: openai::gpt-4o\n')
+                             '  - OpenAI API: openai::gpt-4o\n'
+                             '  - Hugging Face path: MachineLearningLM/MachineLearningLM-7B-v1')
     
     # OpenAI API parameters (required only when using OpenAI)
     parser.add_argument('--api_key', type=str, help='OpenAI API key (required when using openai:: models)')
@@ -508,3 +509,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
