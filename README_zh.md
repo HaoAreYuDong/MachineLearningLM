@@ -1,6 +1,6 @@
 # Machine Learning LLM
 
-README.md | README_zh.md
+[English](https://github.com/HaoAreYuDong/MachineLearningLM/blob/main/README.md) | [中文](https://github.com/HaoAreYuDong/MachineLearningLM/blob/main/README_zh.md)
 
 📄 论文: https://arxiv.org/abs/2509.06806
 
