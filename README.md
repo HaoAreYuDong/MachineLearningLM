@@ -1,7 +1,8 @@
 # Machine Learning LLM
 
-paper: https://arxiv.org/abs/2509.06806
-huggingface: https://huggingface.co/MachineLearningLM
+​📄 Paper​​: https://arxiv.org/abs/2509.06806
+
+🤗 huggingface: https://huggingface.co/MachineLearningLM
 
 ## Evaluation Framework
 
