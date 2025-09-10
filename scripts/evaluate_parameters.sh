@@ -18,7 +18,7 @@ export row_shuffle_seeds="40 41"
 
 # Directory parameters (with clear naming)
 export original_data_dir="./datahub_inputs/data_raw"     # Input for data_chunk_prep.py
-export datahub_outputs_dir="./datahub_outputs/toy3_2800"             # Base directory for all outputs
+export datahub_outputs_dir="./datahub_outputs/MachineLearningLM-7B-v1"             # Base directory for all outputs
 
 export split_data_dir="$datahub_outputs_dir/1_split"       
 export prompt_data_dir="$datahub_outputs_dir/2_prompt"     
@@ -46,7 +46,7 @@ export include_feature_descriptions=False
 export prompt_format_style="concat"
 
 # Model prediction specific parameters
-# export model_name="minzl/toy3_2800"
+# export model_name="MachineLearningLM/MachineLearningLM-7B-v1"
 # export model_name="openai::gpt-4o-mini"   # API example
 export model_name="randomforest"     # ML example
 # export model_name="xgboost"          # ML example  
@@ -85,7 +85,7 @@ export logprobs_supported="True"  # Whether the model supports logprobs
 # prompt_format_style:        Data formatting style: 'concat' or 'tabllm' [prompt_gen only]
 # model_name:                 Model to use for prediction:
 #                               - ML models: randomforest, xgboost, knn (auto-detected)
-#                               - DL models: minzl/toy3_2800, etc. (auto-detected)  
+#                               - DL models: MachineLearningLM/MachineLearningLM-7B-v1, etc. (auto-detected)  
 #                               - API models: openai::gpt-4o, etc. (auto-detected)
 #                             [model_pred only]
 # temperature:                Sampling temperature for model [model_pred only]
