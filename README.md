@@ -42,7 +42,7 @@ For batch processing, you need to provide **input path** and **output path** par
 
 #### Step 1: Activate Parameters
 ```bash
-source ./scripts/parameters.sh
+source ./scripts/evaluate_parameters.sh
 ```
 
 #### Step 2: Choose Execution Mode
@@ -124,7 +124,7 @@ python ./src/evaluation/result_proc/evaluator.py \
 
 ### Configuration
 
-All parameters are managed through `./scripts/parameters.sh`. Modify this file to customize:
+All parameters are managed through `./scripts/evaluate_parameters.sh`. Modify this file to customize:
 - Input/output paths
 - Model configurations
 - Processing parameters
