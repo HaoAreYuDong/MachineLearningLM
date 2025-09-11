@@ -47,7 +47,7 @@ class BaseMLRunner:
                 n_jobs=8  
             )
         elif self.model_name in ['xgboost', 'xgb']:
-            # Default XGBoost parameters updated per user's specification
+            # TODO - Default XGBoost parameters updated per user's specification
             xgb_params = {
                 "objective": "binary:logistic",
                 "eval_metric": "auc",
