@@ -7,7 +7,7 @@
 
 **Pretraining Dataset**  
 
-Part of the dataset has been open-sourced on Hugging Face. The complete dataset is hosted on Google Drive:  
+All Datasets have been open-sourced on Hugging Face. Due to the large file size, the dataset has been split into multiple parts. The complete datasets are hosted on Google Drive:  
 
 - 🔹 **Warmup Dataset**:  
   https://drive.google.com/file/d/1OjD0jICy95lOFp52_2hJoO7KzSiFegLH/view?usp=sharing  
