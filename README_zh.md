@@ -254,3 +254,17 @@ MachineLearningLM/
 ├── THIRD_PARTY_NOTICES.md
 └── LICENSE
 ```
+
+## 致谢
+我们感谢LLaMA-Factory和TabICL的开源代码.
+
+## 引用
+
+```
+@article{dong2025machinelearninglm,
+  title={MachineLearningLM: Scaling Many-shot In-Context Learning via Continued Pretraining},
+  author={Dong, Haoyu and Zhang, Pengkun and Lu, Mingzhe and Shen, Yanzhen and Ke, Guolin},
+  journal={arXiv preprint arXiv:2509.06806},
+  year={2025}
+}
+```
