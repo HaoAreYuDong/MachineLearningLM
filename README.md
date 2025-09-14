@@ -257,4 +257,20 @@ MachineLearningLM/
 └── LICENSE
 ```
 
+## Acknowledgement
+We thank LLaMA-Factory and TabICL for the open source code.
+
+## Reference
+
+If you find HiTab dataset is useful in your work, please consider citing the paper:
+
+```
+@article{dong2025machinelearninglm,
+  title={MachineLearningLM: Scaling Many-shot In-Context Learning via Continued Pretraining},
+  author={Dong, Haoyu and Zhang, Pengkun and Lu, Mingzhe and Shen, Yanzhen and Ke, Guolin},
+  journal={arXiv preprint arXiv:2509.06806},
+  year={2025}
+}
+```
+
 ### 
