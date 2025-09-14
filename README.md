@@ -262,8 +262,6 @@ We thank LLaMA-Factory and TabICL for the open source code.
 
 ## Reference
 
-If you find HiTab dataset is useful in your work, please consider citing the paper:
-
 ```
 @article{dong2025machinelearninglm,
   title={MachineLearningLM: Scaling Many-shot In-Context Learning via Continued Pretraining},
