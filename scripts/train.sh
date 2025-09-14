@@ -14,8 +14,9 @@ combinations=(
   # "$MODEL" "$TEMPLATE" "$LEARNING_RATE" "$EPOCH" "$BATCH_SIZE_PER_DEVICE" "$DATASET" "$CUTOFF_LEN"  "$MAX_SAMPLES" "$LORA_RANK" "$SAVE_STEPS" "$CHECKPOINT(use "" if train from vanilla model)" "$RUN_NAME" "$OUTPUT_DIR" "$WARMUP_RATIO"
   # examples
   "Qwen/Qwen2.5-7B-Instruct" "qwen" "1e-5" "1" "1" "MachineLearningLM_Corpus_Warmup" "32000" "9999999" "8" "100" "" "warmup" "./checkpoint/warmup" "0.05"
-  "Qwen/Qwen2.5-7B-Instruct" "qwen" "1e-7" "1" "1" "MachineLearningLM_Corpus_All_0" "32000" "9999999" "8" "100" "./checkpoint/warmup" "stage0" "./checkpoint/stage0" "0.05"
+  "Qwen/Qwen2.5-7B-Instruct" "qwen" "1e-6" "1" "1" "MachineLearningLM_Corpus_All_0" "32000" "9999999" "8" "100" "./checkpoint/warmup" "stage0" "./checkpoint/stage0" "0.05"
   "Qwen/Qwen2.5-7B-Instruct" "qwen" "1e-6" "1" "1" "MachineLearningLM_Corpus_All_1" "32000" "9999999" "8" "100" "./checkpoint/stage0" "stage1" "./checkpoint/stage1" "0.05"
+  # ...
   
 )
 
