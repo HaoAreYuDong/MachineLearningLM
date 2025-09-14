@@ -1,5 +1,4 @@
 # Machine Learning LLM
-[English](https://github.com/HaoAreYuDong/MachineLearningLM/blob/main/README.md) | [中文](https://github.com/HaoAreYuDong/MachineLearningLM/blob/main/README_zh.md)
 
 ​📄 Paper​​: https://arxiv.org/abs/2509.06806
 
@@ -7,7 +6,7 @@
 
 **Pretraining Dataset**  
 
-All Datasets have been open-sourced on Hugging Face. Due to the large file size, the dataset has been split into multiple parts. The complete datasets are hosted on Google Drive:  
+All Datasets have been open-sourced on Hugging Face. Due to the large file size, the dataset has been split into multiple parts. At the same time, complete datasets are also hosted on Google Drive:  
 
 - 🔹 **Warmup Dataset**:  
   https://drive.google.com/file/d/1OjD0jICy95lOFp52_2hJoO7KzSiFegLH/view?usp=sharing  
