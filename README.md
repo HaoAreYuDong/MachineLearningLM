@@ -12,7 +12,7 @@ The model is been available on [Hugging Face](https://huggingface.co/MachineLear
 
 All Datasets have been open-sourced on [Hugging Face](https://huggingface.co/datasets/MachineLearningLM/machinelearninglm-scm-synthetic-tabularml). Due to the large file size, the dataset has been split into multiple parts. At the same time, complete datasets are also hosted on Google Drive:  
 
-🔹 [Warmup Datase*](https://drive.google.com/file/d/1OjD0jICy95lOFp52_2hJoO7KzSiFegLH/view?usp=sharing)
+🔹 [Warmup Datase](https://drive.google.com/file/d/1OjD0jICy95lOFp52_2hJoO7KzSiFegLH/view?usp=sharing)
 
 🔹 [Full Dataset](https://drive.google.com/file/d/1TYsEMI1WNYDzzE_z83Ah-QAmcoaVHKQA/view?usp=sharing)
 
@@ -140,7 +140,7 @@ All parameters are managed through `./scripts/evaluate_parameters.sh`. Modify th
 - **Comprehensive Evaluation**: Multi-metric evaluation framework
 - **Parallel Optimization**: Built-in parallelization for performance
 
-## Tabicl Evaluation
+## TabICL Evaluation
 
 **This part of the code needs to run in an environment with the tabicl and openpyxl libraries installed.**
 
