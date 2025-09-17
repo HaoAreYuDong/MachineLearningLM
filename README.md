@@ -12,7 +12,7 @@ The model is been available on [Hugging Face](https://huggingface.co/MachineLear
 
 All Datasets have been open-sourced on [Hugging Face](https://huggingface.co/datasets/MachineLearningLM/machinelearninglm-scm-synthetic-tabularml). Due to the large file size, the dataset has been split into multiple parts. At the same time, complete datasets are also hosted on Google Drive:  
 
-🔹 [Warmup Datase](https://drive.google.com/file/d/1OjD0jICy95lOFp52_2hJoO7KzSiFegLH/view?usp=sharing)
+🔹 [Warmup Dataset](https://drive.google.com/file/d/1OjD0jICy95lOFp52_2hJoO7KzSiFegLH/view?usp=sharing)
 
 🔹 [Full Dataset](https://drive.google.com/file/d/1TYsEMI1WNYDzzE_z83Ah-QAmcoaVHKQA/view?usp=sharing)
 
