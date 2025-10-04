@@ -66,7 +66,7 @@ Use scripts in `multi_process/` directory for accelerated parallel execution:
 ```bash
 ./scripts/multi_process/data_prep_mp.sh
 ./scripts/multi_process/prompt_gen_mp.sh  # For deep learning only
-./scripts/multi_process/model_pred_mp.sh
+./scripts/multi_process/model_pred.sh
 ./scripts/multi_process/evaluation_mp.sh
 ./scripts/multi_process/report_mp.sh
 ```
