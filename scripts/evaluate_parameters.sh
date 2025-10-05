@@ -13,8 +13,11 @@
 
 export dataset_names="heloc"
 
+# The number of many-shot examples
 export train_chunk_sizes="8"
-export row_shuffle_seeds="40 41"
+
+# The total number of row_shuffle_seeds is the number of votes, this work uses 5 as default
+export row_shuffle_seeds="40 41 42"
 
 # Directory parameters (with clear naming)
 export original_data_dir="./datahub_inputs/data_raw"     # Input for data_chunk_prep.py
