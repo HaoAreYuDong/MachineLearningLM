@@ -1,4 +1,4 @@
-# Machine Learning LLM
+# MachineLearningLLM: Scaling Many-shot In-context Learning via Continued Pretraining
 
 ​📄 Paper​​: https://arxiv.org/abs/2509.06806
 
