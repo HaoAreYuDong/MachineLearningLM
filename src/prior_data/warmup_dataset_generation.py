@@ -9,6 +9,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score, f1_score
 from tabpfn import TabPFNClassifier
 
+# for GPT post-training, other LLMs need adjustment
 enc = tiktoken.get_encoding("cl100k_base")
 
 # Model configuration
