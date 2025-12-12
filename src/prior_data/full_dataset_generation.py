@@ -26,6 +26,7 @@ pfn = TabPFNClassifier()
 TOKEN_LIMIT = 110000
 num_test = 20
 
+# file name and dir name to be replaced
 output_file = f"ticl_500k_10_1024_{num_test}_shuffle_token_0812_real_resample.jsonl"
 split_data_dir = "ticl_scmcsvfile_10_1024_50_shuffle_0711"
 
