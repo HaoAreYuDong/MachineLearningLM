@@ -15,6 +15,7 @@ from sklearn.metrics import (
 )
 from tabpfn import TabPFNClassifier
 
+# for GPT post-training, other LLMs need adjustment
 enc = tiktoken.get_encoding("cl100k_base")
 
 # Model configuration
